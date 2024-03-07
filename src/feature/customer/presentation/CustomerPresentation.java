@@ -8,20 +8,20 @@ import feature.customer.domain.GetCustomerUseCase;
 
 public class CustomerPresentation {
 
-
-    public void save(Customer customer) {
+    public static void save(Customer customer) {
         CreateCustomerUseCase createCustomerUseCase = new CreateCustomerUseCase(CustomerDataRepository.getInstance());
         createCustomerUseCase.execute(customer);
     }
 
-    public void deleteCustomer(String dni) {
+    public static void deleteCustomer(String dni) {
         DeleteCustomerUseCase deleteCustomerUseCase = new DeleteCustomerUseCase(CustomerDataRepository.getInstance());
         deleteCustomerUseCase.execute(dni);
     }
 
-    public void obtain(String dni) {
-        GetCustomerUseCase getCustomerUseCase = new GetCustomerUseCase(new CustomerDataRepository());
+    public static Customer obtain(String dni) {
+        GetCustomerUseCase getCustomerUseCase = new GetCustomerUseCase(CustomerDataRepository.getInstance());
         Customer customer = getCustomerUseCase.execute(dni);
         System.out.println(customer.dni);
+        return customer;
     }
 }

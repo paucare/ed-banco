@@ -10,9 +10,13 @@ import java.util.TreeMap;
 
 public class CustomerDataRepository implements CustomerRepository   {
 
-    public final Map<String, Customer> customerMap = new HashMap<>();
+    public final Map<String, Customer> customerMap = new TreeMap<>();
 
     public static CustomerDataRepository instance = null;
+
+    private CustomerDataRepository(){
+
+    }
 
     public static CustomerDataRepository getInstance() {
         if (instance == null) {
@@ -24,7 +28,6 @@ public class CustomerDataRepository implements CustomerRepository   {
     @Override
     public void save(Customer customer) {
         customerMap.put(customer.dni, customer);
-
     }
 
     @Override
