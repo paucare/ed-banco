@@ -38,5 +38,5 @@ public class Main {
                 "1", new Transaction("1", "Compra Mercadona", "12"));
 
     }
-
+    //Linea de ejemplo
 }
